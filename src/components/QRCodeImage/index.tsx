@@ -10,7 +10,7 @@ export function QRCodeImage(){
         <Container>
             <QRCode 
                 size={350}
-                value='12kj3lk1j2lj3l1j23jl12k31kj23lj1l23'/>
+                value='ac49fe79b1b6d8498519a410bc9e4d57d52a4b7f'/>
         </Container>
     );
 }

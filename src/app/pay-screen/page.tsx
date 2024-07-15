@@ -121,7 +121,7 @@ const PayScreen: React.FC = () => {
                                 formatType="cvv"
                             />
                         </InputsWrapper>
-                        {selectedOption && <SelectInputOptions quotes={selectedOption.quote} quote_value={selectedOption.quote_value} total_number={selectedOption.total_number} />}
+                        {selectedOption && <SelectInputOptions quotes={selectedOption.quote} quote_value={selectedOption.quote_value} total_number={selectedOption.total_number - (selectedOption.total_number / selectedOption.quote)} />}
                         
                         <DefaultButton title="Pagar" onClick={handleSubmit(onSubmit)} isLoading={isLoading}/>
                         <PaymentTerm />

@@ -7,7 +7,7 @@ interface OptionContainerProps {
 }
 
 export const Container = styled.div`
-  width: 429px;
+  max-width: 429px;
   display: flex;
   justify-content: column;
   flex-direction: column;
