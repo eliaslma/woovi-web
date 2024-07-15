@@ -77,7 +77,7 @@ const DetailMethodScreen: React.FC = () => {
                     {selectedOption
                         && <QuotesList params={selectedOption} />}
                     <LineDivider />
-                    {selectedOption?.total && <TotalQuotes total={selectedOption.total_number} />}
+                    {selectedOption?.total && <TotalQuotes total={selectedOption.total} />}
                     <LineDivider />
                     <Identifier hash={hash} />
                     <SecurityFooter />
