@@ -4,8 +4,9 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 369px;
+    max-width: 429px;
     gap: 20px;
+    width: 100%;
 `;
 
 export const FormWrapper = styled.div`

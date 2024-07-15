@@ -65,8 +65,8 @@ const DetailMethodScreen: React.FC = () => {
     }
 
     return (
+        <ThemeProvider theme={theme}>
         <main className={styles.main}>
-            <ThemeProvider theme={theme}>
                 <Container>
                     <BackButton onClick={handleGoBack}/>
                     <ToastContainer/>
@@ -77,13 +77,13 @@ const DetailMethodScreen: React.FC = () => {
                     {selectedOption
                         && <QuotesList params={selectedOption} />}
                     <LineDivider />
-                    {selectedOption?.total && <TotalQuotes total={selectedOption.total} />}
+                    {selectedOption?.total && <TotalQuotes total={selectedOption.total_number} />}
                     <LineDivider />
                     <Identifier hash={hash} />
                     <SecurityFooter />
                 </Container>
-            </ThemeProvider>
         </main>
+        </ThemeProvider>
     );
 };
 
