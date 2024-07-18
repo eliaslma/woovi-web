@@ -1,8 +1,6 @@
-"use client";
 import React from 'react';
 import logoSvg from '../../assets/Logo.svg';
 import Image from 'next/image';
-import { BackButton } from '../BackButton';
 
 import {
     Container,

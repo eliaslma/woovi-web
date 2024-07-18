@@ -19,6 +19,7 @@ interface SelectedOptionContextType {
 const SelectedOptionContext = createContext<SelectedOptionContextType | undefined>(undefined);
 
 export const SelectedOptionProvider = ({ children }: { children: ReactNode }) => {
+
     const [selectedOption, setSelectedOption] = useState<PixQuoteType | null>(null);
 
     return (
@@ -28,7 +29,7 @@ export const SelectedOptionProvider = ({ children }: { children: ReactNode }) =>
     );
 };
 
-export const useSelectedOption = () => {
+export const useOption = () => {
     const context = useContext(SelectedOptionContext);
     if (context === undefined) {
         throw new Error('useSelectedOption must be used within a SelectedOptionProvider');

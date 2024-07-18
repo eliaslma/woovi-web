@@ -8,13 +8,13 @@ export const Container = styled.div`
 `;
 
 export const PaymentTermTitle = styled.text`
-    color: ${({ theme }) => theme.colors.gray_100};
+    color: ${({ theme }) => theme.colors.gray_200};
     font-size: 16px;
     font-weight: 600;
 `;
 
 export const PaymentTermContent = styled.text`
-    color: ${({ theme }) => theme.colors.extra_gray};
+    color: ${({ theme }) => theme.colors.gray_300};
     font-size: 16px;
     font-weight: 800;
 `;

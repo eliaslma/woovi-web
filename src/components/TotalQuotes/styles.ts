@@ -10,13 +10,13 @@ export const Container = styled.div`
 `;
 
 export const Total = styled.text`
-    color: #4D4D4D;
+    color: ${({ theme }) => theme.colors.gray_300};
     font-size: 18px;
     font-weight: 500;
 `;
 
 export const Cet = styled.text`
-    color: #4D4D4D;
+    color: ${({ theme }) => theme.colors.gray_300};
     font-size: 14px;
     font-weight: 500;
 `;

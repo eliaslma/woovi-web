@@ -9,13 +9,13 @@ export const Container = styled.div`
 `;
 
 export const IdentifierTitle = styled.text`
-    color: #B2B2B2;
+    color: ${({ theme }) => theme.colors.gray_50};
     font-size: 14px;
     font-weight: 500;
 `;
 
 export const IdentifierHash = styled.text`
-    color: #4D4D4D;
+    color: ${({ theme }) => theme.colors.gray_300};
     font-size: 14px;
     font-weight: 800;
 `;

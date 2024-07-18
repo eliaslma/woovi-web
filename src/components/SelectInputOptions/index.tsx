@@ -3,14 +3,13 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import { useSelectedOption } from '@/app/context/SelectedOptionContext';
 
 export function SelectInputOptions({quotes, quote_value, total_number}: {quotes: number, quote_value: string, total_number: number}) {
 
-    const [age, setAge] = React.useState(String(quotes - 1));
+    const [option, setOption] = React.useState(String(quotes - 1));
 
     const handleChange = (event: SelectChangeEvent) => {
-        setAge(event.target.value as string);
+        setOption(event.target.value as string);
     };
 
     const formatQuota = (multiplier: number) => {
@@ -31,7 +30,7 @@ export function SelectInputOptions({quotes, quote_value, total_number}: {quotes:
             <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
-                value={age}
+                value={option}
                 label="Parcelas"
                 onChange={handleChange}>
                     {Array.from({ length: quotes - 1 }, (_, index) => (

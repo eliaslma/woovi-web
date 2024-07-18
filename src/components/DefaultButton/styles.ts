@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const Container = styled.button`
   display: flex;
-  background-color: #133A6F;
-  color: #fff;
+  background-color: ${({ theme }) => theme.colors.secondary};
+  color: ${({ theme }) => theme.colors.white};
   border: none;
   padding: 10px 20px;
   font-size: 16px;

@@ -30,9 +30,8 @@ export const OptionContainer = styled.div<OptionContainerProps>`
   flex-direction: row;
   align-items: center;
   padding: 15px;
-  background-color: ${(props) => (props.selected ? 'rgba(3, 214, 157, 0.05)' : '#fff')};
-  border: 1px solid #E5E5E5;
-
+  background-color: ${(props) => (props.selected ? 'rgba(3, 214, 157, 0.05)' : props.theme.colors.white)};
+  border: 1px solid ${({ theme }) => theme.colors.gray_100};;
 
   cursor: pointer;  
     &:hover {
@@ -40,14 +39,14 @@ export const OptionContainer = styled.div<OptionContainerProps>`
   }
   
   ${(props) => props.selected && css`
-    border: 2px solid #03D69D;
+    border: 2px solid ${({ theme }) => theme.colors.primary};
   `};
   
   ${(props) => props.selected && props.lastOption && css`
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    border: 2px solid #03D69D;
-    border-bottom-color: #03D69D;
+    border: 2px solid ${({ theme }) => theme.colors.primary};
+    border-bottom-color: ${({ theme }) => theme.colors.primary};
   `};
 
   ${(props) => props.lastOption && css`
@@ -78,20 +77,20 @@ export const OptionTotalWrapper = styled.div`
 
 export const OptionQuote = styled.span`
   font-size: 24px;
-  color: ${({ theme }) => theme.colors.extra_gray};;
+  color: ${({ theme }) => theme.colors.gray_300};;
   font-weight: 800;
 `;
 
 export const OptionQuoteTotal = styled.span`
   font-size: 24px;
-  color: ${({ theme }) => theme.colors.extra_gray};
+  color: ${({ theme }) => theme.colors.gray_300};
   font-weight: 500;
 `;
 
 export const OptionTotal = styled.span`
   font-size: 16px;
   margin-bottom: 5px;
-  color: ${({ theme }) => theme.colors.semi_gray};
+  color: ${({ theme }) => theme.colors.gray_200};
   font-weight: 500;
 `;
 
@@ -127,13 +126,13 @@ export const PaymentOptionsTitleWrapper = styled.div`
   left: 9px;
   position: relative;
   z-index: 1;
-  background-color: #E5E5E5;
+  background-color: ${({ theme }) => theme.colors.gray_100};
   padding: 2px 20px;
 `;
 
 export const PaymentOptionsTitle = styled.span`
   font-size: 18px;
-  color: ${({ theme }) => theme.colors.extra_gray};
+  color: ${({ theme }) => theme.colors.gray_300};
   font-weight: 800;
 `;
 
