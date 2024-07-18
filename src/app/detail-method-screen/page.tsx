@@ -4,8 +4,6 @@ import React from 'react';
 import { useOption } from '@/hooks/useOption';
 import styles from '../page.module.css'
 import { Header } from '@/components/Header';
-import { ThemeProvider } from 'styled-components';
-import { theme } from '@/styles/theme';
 import { QRCodeImage } from '@/components/QRCodeImage';
 import { BackButton } from '@/components/BackButton';
 import { PaymentTerm } from '@/components/PaymentTerm';
@@ -65,25 +63,23 @@ const DetailMethodScreen: React.FC = () => {
     }
 
     return (
-        <ThemeProvider theme={theme}>
-            <main className={styles.main}>
-                <Container>
-                    <BackButton onClick={handleGoBack} />
-                    <ToastContainer />
-                    <Header title={title} />
-                    <QRCodeImage />
-                    <QRCodeCopyButton onClick={handleSimulatePayment} />
-                    <PaymentTerm />
-                    {selectedOption
-                        && <QuotesList params={selectedOption} />}
-                    <LineDivider />
-                    {selectedOption?.total && <TotalQuotes total={selectedOption.total} />}
-                    <LineDivider />
-                    <Identifier hash={hash} />
-                    <SecurityFooter />
-                </Container>
-            </main>
-        </ThemeProvider>
+        <main className={styles.main}>
+            <Container>
+                <BackButton onClick={handleGoBack} />
+                <ToastContainer />
+                <Header title={title} />
+                <QRCodeImage />
+                <QRCodeCopyButton onClick={handleSimulatePayment} />
+                <PaymentTerm />
+                {selectedOption
+                    && <QuotesList params={selectedOption} />}
+                <LineDivider />
+                {selectedOption?.total && <TotalQuotes total={selectedOption.total} />}
+                <LineDivider />
+                <Identifier hash={hash} />
+                <SecurityFooter />
+            </Container>
+        </main>
     );
 };
 
