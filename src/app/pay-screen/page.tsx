@@ -6,7 +6,7 @@ import { Container, InputsWrapper, FormWrapper } from './styles';
 import CustomTextField from '@/components/CustomTextField';
 import { SelectInputOptions } from '@/components/SelectInputOptions';
 import { PaymentTerm } from '@/components/PaymentTerm';
-import { useSelectedOption } from '../context/SelectedOptionContext';
+import { useOption } from '../../hooks/useOption';
 import { QuotesList } from '@/components/QuotesList';
 import { LineDivider } from '@/components/LineDivider';
 import { TotalQuotes } from '@/components/TotalQuotes';
@@ -41,7 +41,7 @@ const schema = yup.object().shape({
 
 const PayScreen: React.FC = () => {
 
-    const { selectedOption } = useSelectedOption();
+    const { selectedOption } = useOption();
     const hash = generateHash();
     const router = useRouter();
     const [isLoading, setIsLoading] = useState<boolean>();
@@ -61,21 +61,21 @@ const PayScreen: React.FC = () => {
             progress: undefined,
             theme: "light",
             transition: Bounce,
-          })
+        })
     }
 
     const onSubmit: SubmitHandler<FormInputs> = data => {
 
-            setIsLoading(true);
-            showMessage();
-    
-            setTimeout(() => {
-                if (selectedOption?.quote === 1) {
-                    
-                } else {
-                    router.push('/');
-                }
-            }, 5000);
+        setIsLoading(true);
+        showMessage();
+
+        setTimeout(() => {
+            if (selectedOption?.quote === 1) {
+
+            } else {
+                router.push('/');
+            }
+        }, 5000);
     };
 
     const handleGoBack = () => {
@@ -84,10 +84,13 @@ const PayScreen: React.FC = () => {
 
     return (
         <main className={styles.main}>
-            <ToastContainer/>
+            <ToastContainer />
             <Container>
-                <BackButton onClick={handleGoBack}/>
-                {selectedOption?.quote && <Header title={`Elias, pague o restante em ${selectedOption?.quote - 1}x no ${'\n'} cartão`} />}
+                <BackButton onClick={handleGoBack} />
+                {selectedOption?.quote &&
+                    <Header
+                        title={`Elias, pague o restante em ${selectedOption?.quote - 1}x no ${'\n'} cartão`} />
+                }
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <FormWrapper>
                         <CustomTextField
@@ -121,9 +124,18 @@ const PayScreen: React.FC = () => {
                                 formatType="cvv"
                             />
                         </InputsWrapper>
-                        {selectedOption && <SelectInputOptions quotes={selectedOption.quote} quote_value={selectedOption.quote_value} total_number={selectedOption.total_number - (selectedOption.total_number / selectedOption.quote)} />}
-                        
-                        <DefaultButton title="Pagar" onClick={handleSubmit(onSubmit)} isLoading={isLoading}/>
+                        {selectedOption &&
+                            <SelectInputOptions
+                                quotes={selectedOption.quote}
+                                quote_value={selectedOption.quote_value}
+                                total_number={selectedOption.total_number - (selectedOption.total_number / selectedOption.quote)}
+                            />
+                        }
+                        <DefaultButton
+                            title="Pagar"
+                            onClick={handleSubmit(onSubmit)}
+                            isLoading={isLoading}
+                        />
                         <PaymentTerm />
                         {selectedOption
                             && <QuotesList params={selectedOption} firstQuotePay />}

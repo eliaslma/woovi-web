@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { useSelectedOption } from '@/app/context/SelectedOptionContext';
+import { useOption } from '@/hooks/useOption';
 import styles from '../page.module.css'
 import { Header } from '@/components/Header';
 import { ThemeProvider } from 'styled-components';
@@ -23,7 +23,7 @@ import QRCodeCopyButton from '@/components/CopyQRCodeButton';
 
 const DetailMethodScreen: React.FC = () => {
 
-    const { selectedOption } = useSelectedOption();
+    const { selectedOption } = useOption();
     const router = useRouter();
 
     const hash = generateHash();
@@ -43,7 +43,7 @@ const DetailMethodScreen: React.FC = () => {
             progress: undefined,
             theme: "light",
             transition: Bounce,
-          })
+        })
     }
 
     const handleSimulatePayment = () => {
@@ -52,12 +52,12 @@ const DetailMethodScreen: React.FC = () => {
 
         setTimeout(() => {
             if (selectedOption?.quote === 1) {
-                
+
             } else {
                 router.push('/pay-screen');
             }
         }, 2600);
-    
+
     }
 
     const handleGoBack = () => {
@@ -66,10 +66,10 @@ const DetailMethodScreen: React.FC = () => {
 
     return (
         <ThemeProvider theme={theme}>
-        <main className={styles.main}>
+            <main className={styles.main}>
                 <Container>
-                    <BackButton onClick={handleGoBack}/>
-                    <ToastContainer/>
+                    <BackButton onClick={handleGoBack} />
+                    <ToastContainer />
                     <Header title={title} />
                     <QRCodeImage />
                     <QRCodeCopyButton onClick={handleSimulatePayment} />
@@ -82,7 +82,7 @@ const DetailMethodScreen: React.FC = () => {
                     <Identifier hash={hash} />
                     <SecurityFooter />
                 </Container>
-        </main>
+            </main>
         </ThemeProvider>
     );
 };

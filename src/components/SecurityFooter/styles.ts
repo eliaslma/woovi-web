@@ -14,5 +14,5 @@ export const SecurityText = styled.text`
   font-size: 14px;
   text-align: center;
   font-weight: 500;
-  color: #B2B2B2;
+  color: ${({ theme }) => theme.colors.gray_50};
 `;

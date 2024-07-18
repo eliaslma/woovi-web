@@ -12,6 +12,6 @@ export const Container = styled.div`
 export const Title = styled.span`
     text-align: center;
     font-size: 24px;
-    color: ${({ theme }) => theme.colors.extra_gray};
+    color: ${({ theme }) => theme.colors.gray_300};
     font-weight: 800;
 `;

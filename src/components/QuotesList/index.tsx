@@ -15,8 +15,6 @@ import {
     LineWrapper
 } from './styles';
 
-import { PixQuoteType } from '../PaymentOptions';
-
 export function QuotesList({ params, firstQuotePay }: { params: any, firstQuotePay?: boolean }) {
 
     return (

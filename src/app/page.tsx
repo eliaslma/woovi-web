@@ -10,8 +10,8 @@ export default function Home() {
     return (
         <main className={styles.main}>
             <Header title="Elias, como você quer pagar?" />
-            <PaymentOptions/>
-            <SecurityFooter/>
+            <PaymentOptions />
+            <SecurityFooter />
         </main>
     );
 }

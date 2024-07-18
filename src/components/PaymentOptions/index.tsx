@@ -1,11 +1,10 @@
-'use client';
 import React from 'react';
 import CheckedIcon from '../../assets/checked-icon.svg';
 import UncheckedIcon from '../../assets/ellipse-large.svg';
 import Image from 'next/image';
 import { DefaultButton } from '../DefaultButton';
 import { useRouter } from 'next/navigation';
-import { useSelectedOption } from '@/app/context/SelectedOptionContext';
+import { useOption } from '@/hooks/useOption';
 import { CashBackSticker } from '../CashBackSticker';
 
 import {
@@ -38,7 +37,8 @@ export interface PixQuoteType {
 }
 
 const PaymentOptions = () => {
-    const { selectedOption, setSelectedOption } = useSelectedOption();
+
+    const { selectedOption, setSelectedOption } = useOption();
     const router = useRouter();
 
     const paymentOptions: PixQuoteType[] = [

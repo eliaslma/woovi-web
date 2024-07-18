@@ -8,11 +8,6 @@ export const Container = styled.div`
     margin-top: 20px;
 `;
 
-export const QuoteWrapper = styled.div`
-
-`;
-
-
 export const QuoteTitleWrapper = styled.div`
     display: flex;
     flex-direction: row;
@@ -25,18 +20,16 @@ export const QuoteInfo = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-
 `;
 
-
 export const QuoteTitle = styled.text`
-    color: #4D4D4D;
+    color: ${({ theme }) => theme.colors.gray_300};
     font-size: 18px;
     font-weight: 500;
 `;
 
 export const QuoteValue = styled.text`
-    color: #4D4D4D;
+    color: ${({ theme }) => theme.colors.gray_300};
     font-size: 18px;
     font-weight: 800;
 `;
@@ -45,3 +38,5 @@ export const LineWrapper = styled.div`
     position: relative;
     left: 7px;
 `;
+
+export const QuoteWrapper = styled.div``;
